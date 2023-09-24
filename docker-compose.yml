@@ -9,7 +9,7 @@ services:
         ports:
             - '4566:4566'
         environment:
-            DEBUG: 0
+            DEBUG: 1
             PERSISTENCE: 1
         volumes:
             - type: volume
