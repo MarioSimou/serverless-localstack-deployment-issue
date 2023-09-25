@@ -4,6 +4,9 @@
     "description": "Serverless aws-nodejs-typescript template",
     "main": "serverless.ts",
     "scripts": {
+        "build:entrypoint": "./node_modules/.bin/esbuild --bundle --platform=node --outdir=.esbuild/.build/src",
+        "function:ping:watch": "pnpm build:entrypoint --watch ./src/index.ts",
+        "function:ping:invoke": "sls invoke local -f ping",
         "deploy:dev": "sls deploy --stage dev --verbose"
     },
     "engines": {
@@ -17,7 +20,6 @@
         "serverless": "^3.0.0",
         "serverless-esbuild": "^1.23.3",
         "serverless-localstack": "^1.1.2",
-        "serverless-offline": "^12.0.4",
         "ts-node": "^10.4.0",
         "tsconfig-paths": "^3.9.0",
         "typescript": "^5.2.2"
